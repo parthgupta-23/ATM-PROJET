@@ -1,4 +1,4 @@
-# ATM-PROJET
+# ATM-PROJECT
 
 Project Report
 Title:
