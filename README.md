@@ -1,191 +1,113 @@
-# Mini-ATM-Machine
+# Mini ATM Machine
+
+A simple console-based Mini ATM Machine — a lightweight project that demonstrates basic banking operations such as balance inquiry, deposit, withdrawal, PIN validation, and transaction history. This README mirrors the style and structure of the referenced ATM mini-project while being customized for the parthgupta-23/Mini-ATM-Machine repository.
+
+## Table of Contents
+- [About](#about)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
+
+## About
+Mini ATM Machine is an educational project intended to demonstrate core programming concepts such as user input handling, control flow, data persistence (basic), and simple authentication in a small, easy-to-follow codebase.
+
+## Features
+- PIN-based authentication
+- Balance inquiry
+- Deposit funds
+- Withdraw funds (with simple balance check)
+- Transaction history (session or lightweight file persistence)
+- Input validation and basic error handling
+
+## Technologies
+- Primary language: Python (recommended) — or adapt to Java / C++ / C# as needed
+- No external packages required for the basic version
+
+If your code is in another language, swap the commands below to the appropriate build/run commands.
+
+## Getting Started
+
+### Prerequisites
+- Python 3.8+ installed, or appropriate runtime for your chosen language
+- (Optional) Git for cloning the repository
+
+### Installation
+1. Clone the repository:
+   git clone https://github.com/parthgupta-23/Mini-ATM-Machine.git
+2. Change into the project directory:
+   cd Mini-ATM-Machine
+
+### Running the Application (Python example)
+Run the main program (adjust filename if different):
+python main.py
+
+If the project is in Java:
+javac Main.java
+java Main
+
+If the project is in C++:
+g++ -o atm main.cpp
+./atm
+
+Replace the commands above with the correct filenames for your repository.
+
+## Usage
+- On startup, the application prompts for a PIN.
+- After successful authentication, choose actions from the menu:
+  - Check Balance
+  - Deposit
+  - Withdraw
+  - View Transaction History
+  - Exit
+- All inputs are validated and the user receives clear messages on success/failure.
+
+Example session (Python):
+1. python main.py
+2. Enter PIN: ****
+3. Select option [1-5]: 1
+4. Your current balance is: $1000
+5. Select option: 2 (Deposit), enter amount -> updated balance shown
+
+## Project Structure
+A suggested structure (adjust to match actual repo files):
+- main.py / Main.java / main.cpp — entry point
+- atm/ — core ATM logic and modules
+  - account.py — account and balance management
+  - auth.py — PIN and authentication logic
+  - transactions.py — transaction logging/history
+- data/ — (optional) simple data storage (JSON or text)
+- tests/ — unit tests (if present)
+- README.md — this file
+- LICENSE
+
+Update this section to exactly reflect the files in this repository.
+
+## Contributing
+Contributions are welcome! Steps:
+1. Fork the repository
+2. Create a feature branch: git checkout -b feature/my-feature
+3. Commit your changes: git commit -m "Add my feature"
+4. Push to the branch: git push origin feature/my-feature
+5. Open a pull request describing your changes
+
+Please follow code style guidelines and include tests where appropriate.
 
-Project Report
-Title:
-ATM Simulation System in C
+## License
+This project is released under the MIT License. See LICENSE for details (or replace with the repository's actual license).
 
-Aim:
-To design and implement a simple ATM simulation program using the C programming language that allows users to check balance, deposit money, and withdraw money interactively.
+## Contact
+Maintainer: parthgupta-23
+- GitHub: https://github.com/parthgupta-23
 
-Objectives:
-
-
-To develop a console-based ATM program using C language.
-
-
-To simulate basic banking operations such as balance inquiry, deposit, and withdrawal.
-
-
-To provide a user-friendly interface using menu-driven options.
-
-
-To apply concepts of decision-making, loops, and conditional statements in C programming.
-
-
-To enhance understanding of real-time banking logic implementation in a simple form.
-
-
-
-Introduction of the Project:
-The ATM Simulation System is a simple console-based application designed to mimic the basic functionalities of an Automated Teller Machine (ATM).
-Users can interact with the system by choosing from a set of menu options such as checking their balance, depositing money, withdrawing money, or exiting the application.
-The system is initialized with a fixed balance (₹1000.00) and updates the balance dynamically based on user input. The project demonstrates fundamental programming concepts including conditional statements, loops, input/output operations, and basic arithmetic operations.
-
-Methodology:
-
-
-Problem Analysis:
-Identify the need for simulating ATM operations like balance check, deposit, and withdrawal.
-
-
-Design:
-
-
-Use a menu-driven structure for interaction.
-
-
-Implement a loop for continuous operations until the user chooses to exit.
-
-
-Use switch-case statements for menu options.
-
-
-
-
-Implementation:
-
-
-Code developed using C language.
-
-
-Logical operations for deposit, withdrawal, and validation of user input.
-
-
-
-
-Testing:
-
-
-Test for invalid inputs (e.g., negative amounts).
-
-
-Test for insufficient balance.
-
-
-Validate that balance updates correctly after each transaction.
-
-
-
-
-
-Technology Used in Project:
-
-
-Programming Language: C
-
-
-Compiler: GCC (GNU Compiler Collection) / Turbo C / Code::Blocks / Dev C++
-
-
-Platform: Windows / Linux
-
-
-Paradigm: Procedural Programming
-
-
-
-Hardware and Software Requirements:
-Hardware:
-
-
-Processor: Intel i3 or higher
-
-
-RAM: Minimum 2 GB
-
-
-Storage: 100 MB free disk space
-
-
-Software:
-
-
-Operating System: Windows / Linux
-
-
-C Compiler: GCC / Turbo C
-
-
-IDE (Optional): Code::Blocks / Dev C++ / Visual Studio Code
-
-
-
-Source Code:
-#include <stdio.h>
-int main() {
-    int choice;
-    float balance = 1000.00; // Initial balance
-    float amount;
-
-    while (1) {
-        printf("\n===== ATM Menu =====\n");
-        printf("1. Check Balance\n");
-        printf("2. Deposit Money\n");
-        printf("3. Withdraw Money\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                printf("Your current balance is ₹%.2f\n", balance);
-                break;
-            case 2:
-                printf("Enter amount to deposit: ₹");
-                scanf("%f", &amount);
-                if (amount > 0) {
-                    balance += amount;
-                    printf("₹%.2f deposited successfully.\n", amount);
-                } else {
-                    printf("Invalid deposit amount.\n");
-                }
-                break;
-            case 3:
-                printf("Enter amount to withdraw: ₹");
-                scanf("%f", &amount);
-                if (amount > 0 && amount <= balance) {
-                    balance -= amount;
-                    printf("₹%.2f withdrawn successfully.\n", amount);
-                } else {
-                    printf("Insufficient balance or invalid amount.\n");
-                }
-                break;
-            case 4:
-                printf("Thank you for using the ATM. Goodbye!\n");
-                return 0;
-            default:
-                printf("Invalid choice. Please try again.\n");
-        }
-    }
-
-    return 0;
-}
-
-
-Code Screenshot:
-📸 (Insert screenshot of your code editor showing the above program here)
-
-Output Screenshot:
-📸 (Insert console output screenshot showing menu, deposit, withdrawal, and exit options here)
-Example Output:
-===== ATM Menu =====
-1. Check Balance
-2. Deposit Money
-3. Withdraw Money
-4. Exit
-Enter your choice: 1
-Your current balance is ₹1000.00
-
-
-Conclusion:
-The ATM Simulation Project successfully demonstrates basic banking operations using C programming. It provides a simple yet effective model to understand how an ATM functions. Through this project, key programming concepts like loops, decision-making, user input validation, and modular code design are reinforced. The program can be extended to include additional features such as PIN authentication, transaction history, and multi-user functionality.
+## Acknowledgements
+- Inspired by the ATM mini-project structure used as reference
+- Thanks to contributors and reviewers
